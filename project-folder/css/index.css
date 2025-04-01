@@ -1011,7 +1011,7 @@
     /* Prevent image repetition */
     padding: 50px 20px;
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     /* Full viewport height */
     position: relative;
     justify-content: flex-start;
@@ -1897,15 +1897,11 @@
 
 
 
-
-/* 
 /* Main Container */
 .section-container-11 {
     padding: 40px 5%;
     background-color: #F8F8F8;
 }
-
-
 
 /* Header Section */
 .section-container-11>div:first-child {
@@ -1950,10 +1946,12 @@
 }
 
 /* Reviews Container */
-.section-container-11>div:last-child {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+#review-container {
+    display: flex; /* Flexbox enables horizontal scrolling */
+    gap: 30px; /* Space between reviews */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    padding-bottom: 10px; /* Optional, adds padding for smooth scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
 /* Review Card */
@@ -1964,6 +1962,9 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: transform 0.3s ease-in-out;
+    min-width: 280px; /* Ensure that each card has a minimum width */
+    max-width: 440px;
+    flex-shrink: 0; /* Prevent the card from shrinking */
 }
 
 /* Review Text */
@@ -2069,8 +2070,6 @@
         height: 35px;
     }
 }
- */
-
 
 
 
@@ -2211,6 +2210,7 @@
     .accordion,
     .panel {
         font-size: 14px;
+        min-width: 250px;
     }
 
     .contact-btn {
@@ -2224,25 +2224,19 @@
 
 
 
-
-
-
-
-
 .section-container-13 {
     width: 100%;
     padding: 10px;
 }
 
 .responsive-image {
-    margin: 0px 60px;
-    max-width: 500%;
-    height: auto;
+    margin: 0 auto;  /* Centers the image */
+    max-width: 100%;  /* Ensures the image does not exceed the container's width */
+    height: auto;  /* Maintains the image's aspect ratio */
 }
 
 /* Media Queries for different screen sizes */
 @media (max-width: 1200px) {
-
     /* For large screens like desktops */
     .section-container-13 {
         padding: 20px;
@@ -2250,7 +2244,6 @@
 }
 
 @media (max-width: 768px) {
-
     /* For tablets and smaller screens */
     .section-container-13 {
         padding: 15px;
@@ -2258,15 +2251,14 @@
 }
 
 @media (max-width: 480px) {
-
     /* For mobile screens */
     .section-container-13 {
         padding: 10px;
     }
 
     .responsive-image {
-        width: 90%;
-        /* Adjust image size for small screens */
+        width: 90%;  /* Adjust image size for small screens */
+        margin: 0 auto;  /* Centers the image on small screens */
     }
 }
 
@@ -2375,11 +2367,17 @@ ol li i {
         padding: 15px;
     }
 
-    .responsive-image {
+    .responsive-image-1{
         max-width: 120px;
     }
 
     .links-column {
         min-width: 120px;
+    }
+    .links-container {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+        width: 70%;
     }
 }
